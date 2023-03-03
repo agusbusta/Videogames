@@ -105,7 +105,7 @@ export default function Filters({ setCurrentPage, setOrden }) {
 				<option value=''>
 					Genres
 				</option>
-				{allGenres?.map((e) => {
+				{allGenres.map((e) => {
 					return (
 						<option key={e.id} value={e.name}>
 							{e.name}
