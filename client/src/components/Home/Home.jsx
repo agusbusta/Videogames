@@ -57,20 +57,24 @@ export default function Home() {
         pages={pages}
       />
       <div className={style.cardsContainer}>
-        {currentGames.length ? (
-          currentGames.map((game) => (
-            <Link key={game.id} style={{ textDecoration: 'none' }} to={`/detail/${game.id}`}>
-              <Card
-                name={game.name}
-                image={game.image}
-                rating={game.rating}
-                genres={game.genres}
-              />
-            </Link>
-          ))
-        ) : (
-          <Loader />
-        )}
+	  {Array.isArray(currentGames) && currentGames.length > 0 ? (
+  currentGames.map((e) => {
+    return (
+      <Link style={{textDecoration:'none'}} to={'/detail/' + e.id}>
+        <Card
+          key={e.id}
+          name={e.name}
+          image={e.image}
+          rating={e.rating}
+          genres={e.genres}
+        />
+      </Link>
+    );
+  })
+) : (
+  <Loader />
+)}
+
       </div>
       <div>
         <hr className={style.barras}></hr>
