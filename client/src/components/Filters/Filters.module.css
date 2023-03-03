@@ -1,0 +1,56 @@
+.filtersContainer {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  padding: 5px;
+  width: 96%; 
+}
+
+
+.selectStyle{
+    padding: 3px;
+    background-color: transparent;
+    margin: 5px;
+    color: white;
+    font-size: 12px;
+    border-radius: 12px;
+    outline: none;
+}
+
+.allgamesBtn{
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 12px;
+    font-size: 12px;
+    width: 120px;
+}
+
+.allgamesBtn:hover{
+    background-color: #d874ff;
+}
+
+@media screen and (max-width: 768px) {
+  
+    .filtersContainer {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+  
+    .allgamesBtn {
+      width: 30%;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      
+    }
+  
+    .selectStyle {
+      width: 100%;
+      margin-top: 5px;
+      font-size: 16px;
+    }
+  }
+  
