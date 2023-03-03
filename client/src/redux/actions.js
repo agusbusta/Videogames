@@ -26,7 +26,7 @@ export const ERROR = 'ERROR';
 export const getAllGames = () => {
     return async function (dispatch) {
         try {
-            const response = await axios.get('http://localhost:3001/videogames', {});
+            const response = await axios.get('/videogames', {});
             const games = response.data;
             dispatch({
                 type: GET_ALL_GAMES,
@@ -44,7 +44,7 @@ export const getAllGames = () => {
 export const getNameGames = (name) => {
     return async function (dispatch) {
         try {
-            const response = await axios.get('http://localhost:3001/videogames?name=' + name);
+            const response = await axios.get('/videogames?name=' + name);
 			const games = response.data;
 			dispatch({
 				type: GET_NAME_GAMES,
@@ -63,7 +63,7 @@ export const getNameGames = (name) => {
 export const getDetails = (id) => {
     return async function (dispatch) {
         try {
-            const game = await axios.get('http://localhost:3001/videogame/' + id);
+            const game = await axios.get('/videogame/' + id);
             dispatch({
 				type: GET_DETAILS,
 				payload: game,
@@ -80,7 +80,7 @@ export const getDetails = (id) => {
 export const getGenres = () => {
 	return async function (dispatch) {
 		try {
-			const response = await axios.get('http://localhost:3001/genres', {});
+			const response = await axios.get('/genres', {});
 			const genres = response.data;
 			dispatch({
 				type: GET_GENRES,
@@ -99,7 +99,7 @@ export const postGame = (payload) => {
 	console.log(payload);
 	return async function (dispatch) {
 		try {
-			const response = await axios.post('http://localhost:3001/videogames', payload);
+			const response = await axios.post('/videogames', payload);
 			dispatch({
 				type: POST_GAME,
 				payload: response.data,
