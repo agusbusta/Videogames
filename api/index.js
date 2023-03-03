@@ -20,10 +20,11 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const getGenres = require('./src/controllers/getGenres');
+require('dotenv').config();
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-	server.listen(3001, async () => {
+	server.listen(process.env.PORT, async () => {
 		await getGenres();
 		console.log('listening at 3001'); // eslint-disable-line no-console
 	});
