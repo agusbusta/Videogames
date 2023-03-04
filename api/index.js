@@ -26,7 +26,7 @@ require('dotenv').config();
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
 	server.listen(process.env.PORT, async () => {
-		app.use(cors());
+		server.use(cors());
 		await getGenres();
 		console.log('listening at 3001'); // eslint-disable-line no-console
 	});
