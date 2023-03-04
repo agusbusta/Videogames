@@ -57,31 +57,25 @@ export default function Home() {
         pages={pages}
       />
       <div className={style.cardsContainer}>
-	  {Array.isArray(currentGames) && currentGames.length > 0 ? (
-  currentGames.map((e) => {
-    return (
-      <Link style={{textDecoration:'none'}} to={'/detail/' + e.id}>
-        <Card
-          key={e.id}
-          name={e.name}
-          image={e.image}
-          rating={e.rating}
-          genres={e.genres}
-        />
-      </Link>
-    );
-  })
-) : (
-  <Loader />
-)}
-
+        {Array.isArray(currentGames) && currentGames.length > 0 ? (
+          currentGames.map((e) => (
+            <Link key={e.id} style={{ textDecoration: 'none' }} to={`/detail/${e.id}`}>
+              <Card
+                name={e.name}
+                image={e.image}
+                rating={e.rating}
+                genres={e.genres}
+              />
+            </Link>
+          ))
+        ) : (
+          <Loader />
+        )}
       </div>
       <div>
-        <hr className={style.barras}></hr>
+        <hr className={style.barras} />
         <div className={style.createGameCont}>
-          <h3 className={style.gamecreatorText}>
-            Want to create your own game?
-          </h3>
+          <h3 className={style.gamecreatorText}>Want to create your own game?</h3>
           <Link to="/create">
             <button className={style.buttonCreateGame}>CREATE A GAME</button>
           </Link>
